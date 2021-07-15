@@ -1,0 +1,331 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (54.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateLists (20210715171905)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210715171905_create_lists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210715171905"]]
+  ↳ bin/rails:9
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateItems (20210715172020)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "url" varchar, "bought" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210715172020_create_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210715172020"]]
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-15 17:23:23.291948"], ["updated_at", "2021-07-15 17:23:23.291948"]]
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-07-15 19:25:02 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paula/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/paula/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/paula/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (15.5ms)
+Completed 200 OK in 91ms (Views: 83.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/list" for ::1 at 2021-07-15 19:25:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/list"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/lists" for ::1 at 2021-07-15 19:25:22 +0200
+Processing by ListsController#index as HTML
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:13
+  Rendered lists/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 1021ms (Views: 1000.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/lists/new" for ::1 at 2021-07-15 19:25:25 +0200
+Processing by ListsController#new as HTML
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/_form.html.erb (54.5ms)
+  Rendered lists/new.html.erb within layouts/application (58.9ms)
+Completed 200 OK in 88ms (Views: 83.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/lists" for ::1 at 2021-07-15 19:25:27 +0200
+Processing by ListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xmxG/egKTFpjuC+SmLhoC0itNF9fvjBF+CnJe56sk6IpI9qMQu892v/6GAtj706BPjMHIosqJMiCBwcZ9RpHYA==", "commit"=>"Create List"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:27
+  [1m[36mList Create (67.3ms)[0m  [1m[32mINSERT INTO "lists" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-07-15 17:25:27.127568"], ["updated_at", "2021-07-15 17:25:27.127568"]]
+  ↳ app/controllers/lists_controller.rb:27
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:27
+Redirected to http://localhost:3000/lists/1
+Completed 302 Found in 79ms (ActiveRecord: 69.9ms)
+
+
+Started GET "/lists/1" for ::1 at 2021-07-15 19:25:27 +0200
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:62
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 75ms (Views: 60.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lists/1/edit" for ::1 at 2021-07-15 19:25:30 +0200
+Processing by ListsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:62
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered lists/_form.html.erb (1.3ms)
+  Rendered lists/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 35ms (Views: 31.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lists/1" for ::1 at 2021-07-15 19:25:31 +0200
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:62
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 37ms (Views: 32.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lists" for ::1 at 2021-07-15 19:25:33 +0200
+Processing by ListsController#index as HTML
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:13
+  Rendered lists/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 40ms (Views: 32.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/lists" for ::1 at 2021-07-15 19:29:11 +0200
+Processing by ListsController#index as HTML
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:13
+  Rendered lists/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lists/new" for ::1 at 2021-07-15 19:29:13 +0200
+Processing by ListsController#new as HTML
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/_form.html.erb (41.0ms)
+  Rendered lists/new.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 75ms (Views: 70.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/lists" for ::1 at 2021-07-15 19:29:18 +0200
+Processing by ListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQs8FcxwbGTeeYvCsFv7Yetk33IE9HLCaHb/Cm38YazqRKBkZpUd5EI7vFtLDN3rnfrsD9BgZk8SWDFoBkq1bg==", "list"=>{"title"=>"Jantje"}, "commit"=>"Create List"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/lists_controller.rb:24:in `create'
+Started POST "/lists" for ::1 at 2021-07-15 19:31:01 +0200
+Processing by ListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQs8FcxwbGTeeYvCsFv7Yetk33IE9HLCaHb/Cm38YazqRKBkZpUd5EI7vFtLDN3rnfrsD9BgZk8SWDFoBkq1bg==", "list"=>{"title"=>"Jantje"}, "commit"=>"Create List"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:27
+  [1m[36mList Create (1.2ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Jantje"], ["created_at", "2021-07-15 17:31:01.126418"], ["updated_at", "2021-07-15 17:31:01.126418"]]
+  ↳ app/controllers/lists_controller.rb:27
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:27
+Redirected to http://localhost:3000/lists/2
+Completed 302 Found in 26ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/lists/2" for ::1 at 2021-07-15 19:31:01 +0200
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (2.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:62
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 47ms (Views: 39.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/lists" for ::1 at 2021-07-15 19:31:04 +0200
+Processing by ListsController#index as HTML
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:13
+  Rendered lists/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 34ms (Views: 30.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/lists/2" for ::1 at 2021-07-15 19:31:10 +0200
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:62
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lists/2/edit" for ::1 at 2021-07-15 19:31:11 +0200
+Processing by ListsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:62
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered lists/_form.html.erb (1.3ms)
+  Rendered lists/edit.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 51ms (Views: 45.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lists" for ::1 at 2021-07-15 19:31:15 +0200
+Processing by ListsController#index as HTML
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:13
+  Rendered lists/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 36ms (Views: 32.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/lists/1" for ::1 at 2021-07-15 19:31:18 +0200
+Processing by ListsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3sAC2ZNy5tkJwZSCgUcr3zzyzwHQql7uHJGmv0DcujaWogmMrY7lm88/XQlsokKpw7qL3es04i1DnLRKSIQTHA==", "id"=>"1"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:62
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:52
+  [1m[36mList Destroy (7.4ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/lists_controller.rb:52
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:52
+Redirected to http://localhost:3000/lists
+Completed 302 Found in 23ms (ActiveRecord: 10.7ms)
+
+
+Started GET "/lists" for ::1 at 2021-07-15 19:31:18 +0200
+Processing by ListsController#index as HTML
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:13
+  Rendered lists/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 41ms (Views: 38.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/lists/2" for ::1 at 2021-07-15 19:31:28 +0200
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:62
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 32ms (Views: 24.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/lists" for ::1 at 2021-07-15 19:32:39 +0200
+Processing by ListsController#index as HTML
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:13
+  Rendered lists/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 76ms (Views: 36.9ms | ActiveRecord: 1.2ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (117.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateLists (20210715171905)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210715171905_create_lists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210715171905"]]
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateItems (20210715172020)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "url" varchar, "bought" boolean, "list_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_86a294a765"
+FOREIGN KEY ("list_id")
+  REFERENCES "lists" ("id")
+)[0m
+  ↳ db/migrate/20210715172020_create_items.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_items_on_list_id" ON "items" ("list_id")[0m
+  ↳ db/migrate/20210715172020_create_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210715172020"]]
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-15 17:34:41.214098"], ["updated_at", "2021-07-15 17:34:41.214098"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
